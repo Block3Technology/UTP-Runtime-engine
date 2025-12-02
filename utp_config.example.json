@@ -1,0 +1,52 @@
+{
+  "utcp": {
+    "manual_call_templates": [
+      {
+        "name": "betfair",
+        "call_template_type": "http",
+        "http_method": "GET",
+        "url": "https://api.betfair.com/exchange/betting/json-rpc/v1",
+        "content_type": "application/json"
+      },
+      {
+        "name": "shopify",
+        "call_template_type": "http",
+        "http_method": "GET",
+        "url": "https://${SHOP_NAME}.myshopify.com/admin/api/2024-01",
+        "content_type": "application/json"
+      }
+    ],
+    "load_variables_from": [
+      {
+        "variable_loader_type": "dotenv",
+        "env_file_path": ".env"
+      }
+    ]
+  },
+  "discovery_paths": [
+    "./tools",
+    "./connectors",
+    "./manuals"
+  ],
+  "permissions": {
+    "betfair": {
+      "enabled": true,
+      "allowed_actions": ["listMarkets", "getOdds", "placeBet"]
+    },
+    "shopify": {
+      "enabled": true,
+      "allowed_actions": ["getProducts", "updateInventory"]
+    }
+  },
+  "rate_limits": {
+    "betfair": {
+      "calls_per_minute": 100,
+      "calls_per_hour": 1000
+    }
+  },
+  "business_rules": {
+    "max_bet_amount": 1000,
+    "trading_hours": "09:00-17:00"
+  }
+}
+

@@ -1,0 +1,31 @@
+# UTP Runtime Engine Requirements
+
+# UTCP Core
+utcp>=1.0.0
+utcp-http>=1.0.0
+utcp-text>=1.0.0
+utcp-mcp>=1.0.0
+
+# LLM Integration
+langchain-openai>=0.1.0
+openai>=1.0.0
+
+# Async Support
+aiohttp>=3.9.0
+asyncio>=3.4.3
+
+# Utilities
+pydantic>=2.0.0
+python-dotenv>=1.0.0
+
+# Logging
+structlog>=23.0.0
+
+# Optional: Database for session storage
+# sqlalchemy>=2.0.0
+# asyncpg>=0.29.0
+
+# Optional: Redis for rate limiting
+# redis>=5.0.0
+# aioredis>=2.0.0
+
